@@ -6,11 +6,11 @@ const About = () => {
   return (
     <section
       id="about"
-      className="px-5 pb-16 pt-28 md:px-8 md:pb-24 md:pt-32"
+      className="px-5 pb-10 pt-24 md:px-8 md:pb-16 md:pt-28"
     >
-      <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(340px,430px)] xl:gap-16">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(340px,430px)] xl:gap-12">
         <div className="order-2 mx-auto max-w-3xl text-center lg:order-1 lg:mx-0 lg:text-left">
-          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#8245ec]/25 bg-[#8245ec]/10 px-4 py-2 shadow-[0_0_28px_rgba(130,69,236,0.18)]">
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#8245ec]/25 bg-[#8245ec]/10 px-4 py-2 shadow-[0_0_28px_rgba(130,69,236,0.18)]">
             <span className="h-2 w-2 rounded-full bg-[#a855f7]"></span>
             <span className="font-mono-ui text-xs uppercase tracking-[0.24em] text-gray-300">
               Building useful web systems
@@ -21,7 +21,7 @@ const About = () => {
             Kirubakaran S
           </h1>
 
-          <h2 className="mx-auto mt-6 max-w-3xl text-2xl font-semibold leading-tight text-[#a855f7] sm:text-3xl lg:mx-0 xl:text-4xl">
+          <h2 className="mx-auto mt-4 max-w-3xl text-2xl font-semibold leading-tight text-[#a855f7] sm:text-3xl lg:mx-0 xl:text-4xl">
             <span className="text-white">I design and ship as a </span>
             <ReactTypingEffect
               text={["Fullstack Developer", "Problem Solver", "MERN Builder"]}
@@ -35,14 +35,14 @@ const About = () => {
             />
           </h2>
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-gray-400 lg:mx-0">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-400 lg:mx-0">
             I am a full-stack developer, building scalable web applications.
             Skilled in both front-end and back-end development, I specialize in
             the MERN stack and other modern technologies to create seamless user
             experiences and efficient solutions.
           </p>
 
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+          <div className="mt-7 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
             <a
               href="https://drive.google.com/file/d/1Bazyjpww7Omh9OxF8-wfkxSwkSSQuH-V/view?usp=sharing"
               target="_blank"
@@ -75,7 +75,7 @@ const About = () => {
               alt="Kirubakaran S"
               className="mt-4 aspect-[4/5] w-full rounded-[1.5rem] object-cover drop-shadow-[0_15px_35px_rgba(130,69,236,0.35)]"
             />
-            <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
               {["React", "Node", "MongoDB"].map((item) => (
                 <span
                   key={item}

@@ -3,15 +3,15 @@ import { SkillsInfo } from "../constants";
 const Skills = () => (
   <section
     id="skills"
-    className="px-5 py-20 md:px-8 md:py-28"
+    className="px-5 py-12 md:px-8 md:py-16"
   >
     <div className="mx-auto max-w-7xl">
-      <div className="mb-12 grid gap-6 border-y border-[#8245ec]/20 py-8 md:grid-cols-[0.6fr_1fr] md:items-end">
+      <div className="mb-8 grid gap-5 border-y border-[#8245ec]/20 py-6 md:grid-cols-[0.6fr_1fr] md:items-end">
         <div>
           <p className="font-mono-ui text-xs uppercase tracking-[0.28em] text-[#a855f7]">
             Capability map
           </p>
-          <h2 className="mt-3 text-4xl font-black text-white md:text-6xl">
+          <h2 className="mt-2 text-4xl font-black text-white md:text-5xl">
             Skills
           </h2>
         </div>
@@ -21,13 +21,13 @@ const Skills = () => (
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         {SkillsInfo.map((category, categoryIndex) => (
           <div
             key={category.title}
-            className="rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-5 shadow-[0_0_32px_rgba(130,69,236,0.16)] backdrop-blur sm:p-7"
+            className="rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-5 shadow-[0_0_32px_rgba(130,69,236,0.16)] backdrop-blur sm:p-6"
           >
-            <div className="mb-6 flex items-start justify-between gap-4">
+            <div className="mb-4 flex items-start justify-between gap-4">
               <div>
                 <span className="font-mono-ui text-xs text-[#a855f7]">
                   0{categoryIndex + 1}

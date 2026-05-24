@@ -41,7 +41,6 @@ import farm from "./assets/work_logo/farm.png";
 import road from "./assets/work_logo/road.png";
 import food from "./assets/work_logo/food.png";
 import car from "./assets/work_logo/car.png";
-import portfolio from "./assets/work_logo/portfolio.png";
 import interview from "./assets/work_logo/interview.png"
 import chat from "./assets/work_logo/chat.png"
 

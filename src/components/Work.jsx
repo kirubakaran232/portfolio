@@ -16,15 +16,15 @@ const Work = () => {
   return (
     <section
       id="work"
-      className="relative px-5 py-20 md:px-8 md:py-28"
+      className="relative px-5 py-12 md:px-8 md:py-16"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
             <p className="font-mono-ui text-xs uppercase tracking-[0.28em] text-[#a855f7]">
               Selected builds
             </p>
-            <h2 className="mt-3 text-4xl font-black text-white md:text-6xl">
+            <h2 className="mt-2 text-4xl font-black text-white md:text-5xl">
               Projects
             </h2>
           </div>
@@ -39,7 +39,7 @@ const Work = () => {
             <button
               key={project.id ?? project.title}
               onClick={() => handleOpenModal(project)}
-              className="group flex h-full min-h-[430px] flex-col rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-4 text-left shadow-[0_0_32px_rgba(130,69,236,0.14)] backdrop-blur transition hover:-translate-y-2 hover:border-[#a855f7] hover:shadow-[0_0_45px_rgba(130,69,236,0.28)]"
+              className="group flex h-full min-h-[400px] flex-col rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-4 text-left shadow-[0_0_32px_rgba(130,69,236,0.14)] backdrop-blur transition hover:-translate-y-2 hover:border-[#a855f7] hover:shadow-[0_0_45px_rgba(130,69,236,0.28)]"
             >
               <div className="mb-4 flex items-center justify-between">
                 <span className="font-mono-ui text-xs text-[#a855f7]">
@@ -54,13 +54,13 @@ const Work = () => {
                   className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
-              <h3 className="mt-6 min-h-[64px] text-2xl font-bold leading-tight text-white">
+              <h3 className="mt-4 min-h-[58px] text-2xl font-bold leading-tight text-white">
                 {project.title}
               </h3>
-              <p className="mt-4 line-clamp-4 flex-1 leading-7 text-gray-400">
+              <p className="mt-3 line-clamp-4 flex-1 leading-7 text-gray-400">
                 {project.description}
               </p>
-              <div className="mt-6 flex min-h-[64px] flex-wrap content-start gap-2">
+              <div className="mt-4 flex min-h-[58px] flex-wrap content-start gap-2">
                 {(project.tags ?? []).slice(0, 6).map((tag, index) => (
                   <span
                     key={index}

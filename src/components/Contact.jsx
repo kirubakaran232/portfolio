@@ -23,27 +23,27 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="px-5 py-20 md:px-8 md:py-28">
+    <section id="contact" className="px-5 py-12 md:px-8 md:py-16">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="rounded-3xl bg-gradient-to-br from-[#8245ec] to-[#a855f7] p-8 text-white shadow-[0_0_55px_rgba(130,69,236,0.35)] md:p-12">
+        <div className="rounded-3xl bg-gradient-to-br from-[#8245ec] to-[#a855f7] p-7 text-white shadow-[0_0_55px_rgba(130,69,236,0.35)] md:p-10">
           <p className="font-mono-ui text-xs uppercase tracking-[0.28em] text-purple-100">
             Next move
           </p>
-          <h2 className="mt-4 text-4xl font-black leading-tight md:text-6xl">
+          <h2 className="mt-3 text-4xl font-black leading-tight md:text-5xl">
             Have a problem worth building?
           </h2>
-          <p className="mt-6 max-w-xl text-lg leading-8 font-medium">
+          <p className="mt-4 max-w-xl text-lg leading-8 font-medium">
             I am open to internships, freelance work, and collaborative product
             ideas where clean interfaces meet practical backend logic.
           </p>
-          <div className="mt-10 flex items-center gap-3 font-bold">
+          <div className="mt-6 flex items-center gap-3 font-bold">
             <FiMapPin />
             <span>India, available remotely</span>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-6 shadow-[0_0_32px_rgba(130,69,236,0.14)] backdrop-blur md:p-10">
-          <div className="grid gap-4">
+        <div className="rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-5 shadow-[0_0_32px_rgba(130,69,236,0.14)] backdrop-blur md:p-8">
+          <div className="grid gap-3">
             {contactLinks.map((link) => (
               <a
                 key={link.label}
