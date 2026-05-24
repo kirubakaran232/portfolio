@@ -1,155 +1,75 @@
-import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { FiGithub, FiLinkedin, FiMail, FiMapPin, FiSend } from "react-icons/fi";
 
 const Contact = () => {
-  const [result, setResult] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    setResult("Sending....");
-
-    const formData = new FormData(event.target);
-    formData.append("access_key", "59b7bf8e-1e75-4efe-97ec-d56a0780551f"); // Replace with your actual key
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-
-      // If CORS blocks response, this will throw before we can parse JSON
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      const data = await response.json();
-      if (data.success) {
-        setResult("Form Submitted Successfully");
-        event.target.reset();
-        toast.success("Message sent successfully! ✅", {
-          position: "top-right",
-          autoClose: 3000,
-          theme: "dark",
-        });
-      } else {
-        setResult(data.message);
-        toast.error("Failed to send message. Please try again.", {
-          position: "top-right",
-          autoClose: 3000,
-          theme: "dark",
-        });
-      }
-    } catch (error) {
-      console.error("Error sending message:", error);
-
-      // 👇 Localhost fallback (email is still sent even if CORS blocks response)
-      if (window.location.hostname === "localhost") {
-        setResult("Form Submitted Successfully (Localhost)");
-        toast.success("Message sent successfully!", {
-          position: "top-right",
-          autoClose: 3000,
-          theme: "dark",
-        });
-        event.target.reset();
-      } else {
-        setResult("An error occurred. Please try again.");
-        toast.error("Failed to send message. Please try again.", {
-          position: "top-right",
-          autoClose: 3000,
-          theme: "dark",
-        });
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const contactLinks = [
+    {
+      label: "Email",
+      value: "skirubakaran2005@gmail.com",
+      href: "mailto:skirubakaran2005@gmail.com",
+      icon: <FiMail />,
+    },
+    {
+      label: "GitHub",
+      value: "kirubakaran232",
+      href: "https://github.com/kirubakaran232",
+      icon: <FiGithub />,
+    },
+    {
+      label: "LinkedIn",
+      value: "kirubakaran1406",
+      href: "https://www.linkedin.com/in/kirubakaran1406/",
+      icon: <FiLinkedin />,
+    },
+  ];
 
   return (
-    <section
-      id="contact"
-      className="flex flex-col items-center justify-center py-24 px-[12vw] md:px-[7vw] lg:px-[20vw]"
-    >
-      <ToastContainer />
+    <section id="contact" className="px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="rounded-3xl bg-gradient-to-br from-[#8245ec] to-[#a855f7] p-8 text-white shadow-[0_0_55px_rgba(130,69,236,0.35)] md:p-12">
+          <p className="font-mono-ui text-xs uppercase tracking-[0.28em] text-purple-100">
+            Next move
+          </p>
+          <h2 className="mt-4 text-4xl font-black leading-tight md:text-6xl">
+            Have a problem worth building?
+          </h2>
+          <p className="mt-6 max-w-xl text-lg leading-8 font-medium">
+            I am open to internships, freelance work, and collaborative product
+            ideas where clean interfaces meet practical backend logic.
+          </p>
+          <div className="mt-10 flex items-center gap-3 font-bold">
+            <FiMapPin />
+            <span>India, available remotely</span>
+          </div>
+        </div>
 
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">CONTACT</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          I'd love to hear from you—reach out for any opportunities or
-          questions!
-        </p>
-      </div>
-
-      <div className="mt-8 w-full max-w-md bg-[#0d081f] p-6 rounded-lg shadow-lg border border-gray-700">
-        <h3 className="text-xl font-semibold text-white text-center">
-          Connect With Me <span className="ml-1">🚀</span>
-        </h3>
-
-        <form onSubmit={onSubmit} className="mt-4 flex flex-col space-y-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
-          />
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows="4"
-            required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
-          />
-
-          {/* Hidden fields for Web3Forms */}
-          <input
-            type="hidden"
-            name="from_name"
-            value="Portfolio Contact Form"
-          />
-          <input type="hidden" name="redirect" value="false" />
-
-          <button
-            type="submit"
-            disabled={isLoading}
-            className={`w-full bg-gradient-to-r from-purple-600 to-pink-500 py-3 text-white font-semibold rounded-md hover:opacity-90 transition ${
-              isLoading ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-          >
-            {isLoading ? "Sending..." : "Send"}
-          </button>
-
-          {result && (
-            <div className="text-center mt-4">
-              <span
-                className={`text-sm font-medium ${
-                  result.includes("Successfully")
-                    ? "text-green-400"
-                    : "text-red-400"
-                }`}
+        <div className="rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-6 shadow-[0_0_32px_rgba(130,69,236,0.14)] backdrop-blur md:p-10">
+          <div className="grid gap-4">
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  link.href.startsWith("http") ? "noopener noreferrer" : undefined
+                }
+                className="group grid gap-4 rounded-2xl border border-[#8245ec]/20 bg-[#050414]/70 p-5 transition hover:-translate-y-1 hover:border-[#a855f7] hover:bg-[#8245ec]/15 sm:grid-cols-[auto_1fr_auto] sm:items-center"
               >
-                {result}
-              </span>
-            </div>
-          )}
-        </form>
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#8245ec] text-xl text-white">
+                  {link.icon}
+                </span>
+                <span>
+                  <span className="font-mono-ui text-xs uppercase tracking-[0.22em] text-[#a855f7]">
+                    {link.label}
+                  </span>
+                  <span className="mt-1 block break-all text-lg font-semibold text-white">
+                    {link.value}
+                  </span>
+                </span>
+                <FiSend className="text-purple-300 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,8 +1,4 @@
-import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
-
 const Footer = () => {
-  // Smooth scroll function
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -11,31 +7,29 @@ const Footer = () => {
   };
 
   return (
-    <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
-      <div className="container mx-auto text-center">
-        {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-purple-500">Kirubakaran S</h2>
+    <footer className="px-5 py-8 text-white md:px-8">
+      <div className="mx-auto max-w-7xl border-t border-[#8245ec]/20 py-8 text-center">
+        <h2 className="text-xl font-bold text-[#a855f7]">Kirubakaran S</h2>
 
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-6 mt-4">
+        <nav className="mt-4 flex flex-wrap justify-center gap-4 sm:gap-6">
           {[
             { name: "About", id: "about" },
             { name: "Skills", id: "skills" },
-            { name: "Projects", id: "projects" },
-          ].map((item, index) => (
+            { name: "Projects", id: "work" },
+            { name: "Contact", id: "contact" },
+          ].map((item) => (
             <button
-              key={index}
+              key={item.id}
               onClick={() => handleScroll(item.id)}
-              className="hover:text-purple-500 text-sm sm:text-base my-1"
+              className="my-1 text-sm text-gray-400 hover:text-[#a855f7] sm:text-base"
             >
               {item.name}
             </button>
           ))}
         </nav>
 
-        {/* Copyright Text */}
-        <p className="text-sm text-gray-400 mt-6">
-          © 2025 Kirubakaran. All rights reserved.
+        <p className="mt-6 font-mono-ui text-xs text-gray-500">
+          (c) 2026 Kirubakaran. All rights reserved.
         </p>
       </div>
     </footer>

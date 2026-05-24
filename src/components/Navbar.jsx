@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { SiLeetcode } from "react-icons/si";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -33,109 +33,126 @@ const Navbar = () => {
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "work", label: "Projects" },
-    { id: "contact", label: "Contact" },  
+    { id: "contact", label: "Contact" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
+      className={`fixed top-0 w-full z-50 px-5 transition duration-300 md:px-8 ${
         isScrolled
-          ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md"
+          ? "border-b border-[#8245ec]/20 bg-[#050414]/80 shadow-lg shadow-[#8245ec]/10 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="text-white py-5 flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-lg font-semibold cursor-pointer">
-          <span className="text-[#8245ec]">&lt;</span>
-          <span className="text-white">Kirubakaran</span>
-          <span className="text-[#8245ec]">/</span>
-          <span className="text-white">Portfolio</span>
-          <span className="text-[#8245ec]">&gt;</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between py-4 text-white">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => handleMenuItemClick("about")}
+            className="grid h-11 w-11 place-items-center rounded-2xl border border-[#8245ec]/40 bg-[#8245ec] text-lg font-black text-white shadow-[0_0_28px_rgba(130,69,236,0.45)] transition hover:-translate-y-0.5 hover:bg-[#a855f7]"
+            aria-label="Go to intro"
+          >
+            KS
+          </button>
+          <div className="hidden leading-tight sm:block">
+            <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[#a855f7]">
+              Fullstack
+            </p>
+            <p className="text-sm font-semibold">Kirubakaran S</p>
+          </div>
         </div>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300">
+        <ul className="hidden items-center gap-2 rounded-full border border-[#8245ec]/25 bg-[#120d24]/70 p-1 shadow-lg shadow-black/20 backdrop-blur md:flex">
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
-              }`}
+              className="cursor-pointer"
             >
-              <button onClick={() => handleMenuItemClick(item.id)}>
+              <button
+                onClick={() => handleMenuItemClick(item.id)}
+                className={`px-4 py-2 text-sm font-semibold transition ${
+                  activeSection === item.id
+                    ? "rounded-full bg-[#8245ec] text-white shadow-[0_0_20px_rgba(130,69,236,0.45)]"
+                    : "rounded-full text-gray-300 hover:bg-[#8245ec]/15 hover:text-white"
+                }`}
+              >
                 {item.label}
               </button>
             </li>
           ))}
         </ul>
 
-        {/* Social Icons */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden items-center gap-3 md:flex">
           <a
             href="https://github.com/kirubakaran232"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            aria-label="GitHub"
+            className="text-gray-300 transition hover:text-[#a855f7]"
           >
-            <FaGithub size={24} />
+            <FaGithub size={22} />
           </a>
           <a
             href="https://www.linkedin.com/in/kirubakaran1406/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            aria-label="LinkedIn"
+            className="text-gray-300 transition hover:text-[#a855f7]"
           >
-            <FaLinkedin size={24} />
+            <FaLinkedin size={22} />
           </a>
           <a
             href="https://leetcode.com/u/kiruba1406/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            aria-label="LeetCode"
+            className="text-gray-300 transition hover:text-[#a855f7]"
           >
-            <SiLeetcode size={24} />
+            <SiLeetcode size={22} />
           </a>
         </div>
 
-        {/* Mobile Menu Icon */}
         <div className="md:hidden">
           {isOpen ? (
             <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
+              className="cursor-pointer text-3xl text-[#8245ec]"
               onClick={() => setIsOpen(false)}
             />
           ) : (
             <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
+              className="cursor-pointer text-3xl text-[#8245ec]"
               onClick={() => setIsOpen(true)}
             />
           )}
         </div>
       </div>
 
-      {/* Mobile Menu Items */}
       {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
+        <div className="absolute left-5 right-5 top-20 z-50 rounded-2xl border border-[#8245ec]/25 bg-[#120d24]/95 p-3 shadow-2xl shadow-[#8245ec]/20 backdrop-blur-lg md:hidden">
+          <ul className="flex flex-col gap-2 text-gray-300">
             {menuItems.map((item) => (
               <li
                 key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
+                className="cursor-pointer"
               >
-                <button onClick={() => handleMenuItemClick(item.id)}>
+                <button
+                  onClick={() => handleMenuItemClick(item.id)}
+                  className={`w-full px-4 py-3 text-left font-semibold ${
+                    activeSection === item.id
+                      ? "rounded-xl bg-[#8245ec] text-white"
+                      : "rounded-xl hover:bg-[#8245ec]/15 hover:text-white"
+                  }`}
+                >
                   {item.label}
                 </button>
               </li>
             ))}
-            <div className="flex space-x-4">
+            <div className="flex gap-4 px-4 py-3">
               <a
                 href="https://github.com/kirubakaran232"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
+                aria-label="GitHub"
+                className="text-gray-300 hover:text-[#a855f7]"
               >
                 <FaGithub size={24} />
               </a>
@@ -143,7 +160,8 @@ const Navbar = () => {
                 href="https://www.linkedin.com/in/kirubakaran1406/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
+                aria-label="LinkedIn"
+                className="text-gray-300 hover:text-[#a855f7]"
               >
                 <FaLinkedin size={24} />
               </a>
@@ -151,7 +169,8 @@ const Navbar = () => {
                 href="https://leetcode.com/u/kiruba1406/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#8245ec]"
+                aria-label="LeetCode"
+                className="text-gray-300 hover:text-[#a855f7]"
               >
                 <SiLeetcode size={24} />
               </a>

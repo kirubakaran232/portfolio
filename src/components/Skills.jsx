@@ -1,53 +1,66 @@
-// src/components/Skills/Skills.jsx
-import React from "react";
 import { SkillsInfo } from "../constants";
 
 const Skills = () => (
   <section
     id="skills"
-    className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans bg-skills-gradient clip-path-custom"
+    className="px-5 py-20 md:px-8 md:py-28"
   >
-    {/* Section Title */}
-    <div className="text-center mb-8">
-      <h2 className="text-3xl sm:text-4xl font-bold text-white">SKILLS</h2>
-      <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2"></div>
-      <p className="text-gray-400 mt-4 text-lg font-semibold">
-      A collection of my technical skills and expertise honed through various projects and experiences
-      </p>
-    </div>
+    <div className="mx-auto max-w-7xl">
+      <div className="mb-12 grid gap-6 border-y border-[#8245ec]/20 py-8 md:grid-cols-[0.6fr_1fr] md:items-end">
+        <div>
+          <p className="font-mono-ui text-xs uppercase tracking-[0.28em] text-[#a855f7]">
+            Capability map
+          </p>
+          <h2 className="mt-3 text-4xl font-black text-white md:text-6xl">
+            Skills
+          </h2>
+        </div>
+        <p className="max-w-2xl text-lg leading-8 text-gray-400 md:justify-self-end">
+          A practical stack shaped by project work: interfaces, APIs, databases,
+          tooling, and the languages needed to connect them cleanly.
+        </p>
+      </div>
 
-    {/* Skill Categories */}
-    <div className="flex flex-wrap gap-1 lg:gap-5 py-10 justify-between">
-      {SkillsInfo.map((category) => (
-        <div
-          key={category.title}
-          className="bg-gray-900 backdrop-blur-md px-6 sm:px-10 py-8 sm:py-6 mb-10 w-full sm:w-[48%] rounded-2xl border border-white 
-          shadow-[0_0_20px_1px_rgba(130,69,236,0.3)]"
-        >
-          <h3 className="text-2xl sm:text-3xl font-semibold text-gray-400 mb-4 text-center">
-            {category.title}
-          </h3>
+      <div className="grid gap-6 md:grid-cols-2">
+        {SkillsInfo.map((category, categoryIndex) => (
+          <div
+            key={category.title}
+            className="rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-5 shadow-[0_0_32px_rgba(130,69,236,0.16)] backdrop-blur sm:p-7"
+          >
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <span className="font-mono-ui text-xs text-[#a855f7]">
+                  0{categoryIndex + 1}
+                </span>
+                <h3 className="mt-2 text-2xl font-bold text-white">
+                  {category.title}
+                </h3>
+              </div>
+              <span className="mt-1 rounded-full border border-[#8245ec]/25 bg-[#8245ec]/10 px-3 py-1 font-mono-ui text-xs text-purple-300">
+                {category.skills.length} tools
+              </span>
+            </div>
 
-          {/* Skill Items - 3 per row on larger screens */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {category.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="flex items-center justify-center space-x-2 bg-transparent border-2 border-gray-700 rounded-3xl py-2 px-2 sm:py-2 sm:px-2 text-center"
+                  className="group flex min-h-16 items-center gap-3 rounded-2xl border border-[#8245ec]/20 bg-[#050414]/70 px-3 py-3 transition hover:-translate-y-1 hover:border-[#a855f7] hover:bg-[#8245ec]/15"
                 >
                   <img
                     src={skill.logo}
                     alt={`${skill.name} logo`}
-                    className="w-6 h-6 sm:w-8 sm:h-8"
+                    className="h-8 w-8 object-contain"
                   />
-                  <span className="text-xs sm:text-sm text-gray-300">
+                  <span className="text-sm font-semibold text-gray-300">
                     {skill.name}
                   </span>
                 </div>
               ))}
             </div>
-        </div>
-      ))}
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 );

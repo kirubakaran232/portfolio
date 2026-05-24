@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { projects } from "../constants";
+import { FiExternalLink, FiX } from "react-icons/fi";
 
 const Work = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -15,103 +16,124 @@ const Work = () => {
   return (
     <section
       id="work"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans relative"
+      className="relative px-5 py-20 md:px-8 md:py-28"
     >
-      {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">PROJECTS</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          A showcase of the projects I have worked on, highlighting my skills
-          and experience in various technologies
-        </p>
-      </div>
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="font-mono-ui text-xs uppercase tracking-[0.28em] text-[#a855f7]">
+              Selected builds
+            </p>
+            <h2 className="mt-3 text-4xl font-black text-white md:text-6xl">
+              Projects
+            </h2>
+          </div>
+          <p className="max-w-xl text-lg leading-8 text-gray-400">
+            Work focused on practical public systems, safer roads, agriculture,
+            ordering flows, and portfolio discovery.
+          </p>
+        </div>
 
-      {/* Projects Grid */}
-      <div className="grid gap-[7rem] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            onClick={() => handleOpenModal(project)}
-            className="w-80 h-96 border border-white bg-gray-900 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:shadow-purple-500/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col"
-          >
-            <div className="p-4 flex-shrink-0">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-32 object-cover rounded-xl"
-              />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-xl font-bold text-white mb-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project, index) => (
+            <button
+              key={project.id ?? project.title}
+              onClick={() => handleOpenModal(project)}
+              className="group flex h-full min-h-[430px] flex-col rounded-3xl border border-[#8245ec]/25 bg-[#120d24]/80 p-4 text-left shadow-[0_0_32px_rgba(130,69,236,0.14)] backdrop-blur transition hover:-translate-y-2 hover:border-[#a855f7] hover:shadow-[0_0_45px_rgba(130,69,236,0.28)]"
+            >
+              <div className="mb-4 flex items-center justify-between">
+                <span className="font-mono-ui text-xs text-[#a855f7]">
+                  CASE {String(index + 1).padStart(2, "0")}
+                </span>
+                <FiExternalLink className="text-purple-300 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-[#8245ec]/20 bg-[#050414]/70">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="mt-6 min-h-[64px] text-2xl font-bold leading-tight text-white">
                 {project.title}
               </h3>
-              <p className="text-gray-500 mb-4 pt-2 line-clamp-3 flex-grow">
+              <p className="mt-4 line-clamp-4 flex-1 leading-7 text-gray-400">
                 {project.description}
               </p>
-              <div className="mb-2">
-                {project.tags.map((tag, index) => (
+              <div className="mt-6 flex min-h-[64px] flex-wrap content-start gap-2">
+                {(project.tags ?? []).slice(0, 6).map((tag, index) => (
                   <span
                     key={index}
-                    className="inline-block bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1 mr-2 mb-2"
+                    className="rounded-full bg-[#8245ec]/15 px-2.5 py-1 font-mono-ui text-[11px] text-purple-300"
                   >
                     {tag}
                   </span>
                 ))}
+                {(project.tags?.length ?? 0) > 6 && (
+                  <span className="rounded-full bg-white/10 px-2.5 py-1 font-mono-ui text-[11px] text-gray-300">
+                    +{project.tags.length - 6}
+                  </span>
+                )}
               </div>
-            </div>
-          </div>
-        ))}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Modal Container */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
-            <div className="flex justify-end p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#050414]/90 p-4 backdrop-blur-xl">
+          <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-[#8245ec]/25 bg-[#120d24] shadow-2xl shadow-[#8245ec]/25">
+            <div className="sticky top-0 z-10 flex justify-between border-b border-[#8245ec]/20 bg-[#120d24]/95 p-4 backdrop-blur">
+              <span className="font-mono-ui text-xs uppercase tracking-[0.24em] text-[#a855f7]">
+                Project detail
+              </span>
               <button
                 onClick={handleCloseModal}
-                className="text-white text-3xl font-bold hover:text-purple-500"
+                className="grid h-9 w-9 place-items-center rounded-full bg-[#8245ec] text-white transition hover:bg-[#a855f7]"
+                aria-label="Close project details"
               >
-                &times;
+                <FiX />
               </button>
             </div>
 
-            <div className="flex flex-col">
-              <div className="w-full flex justify-center bg-gray-900 px-4">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="lg:w-full w-[95%] object-contain rounded-xl shadow-2xl"
-                />
+            <div className="grid gap-6 p-5 lg:grid-cols-[1fr_0.9fr] lg:p-8">
+              <div>
+                {selectedProject.image && (
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full rounded-2xl border border-[#8245ec]/20 object-contain"
+                  />
+                )}
               </div>
-              <div className="lg:p-8 p-6">
-                <h3 className="lg:text-3xl font-bold text-white mb-4 text-md">
+              <div>
+                <h3 className="text-3xl font-bold leading-tight text-white">
                   {selectedProject.title}
                 </h3>
-                <p className="text-gray-400 mb-6 lg:text-base text-xs">
+                <p className="mt-5 leading-8 text-gray-400">
                   {selectedProject.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selectedProject.tags.map((tag, index) => (
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {(selectedProject.tags ?? []).map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1"
+                      className="rounded-full bg-[#8245ec]/15 px-3 py-1.5 font-mono-ui text-xs text-purple-300"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                {selectedProject.github && (
                   <a
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-gray-800 hover:bg-purple-800 text-gray-400 lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#8245ec] to-[#a855f7] px-5 py-3 font-bold text-white transition hover:-translate-y-1"
                   >
                     View Code
+                    <FiExternalLink />
                   </a>
-                </div>
+                )}
               </div>
             </div>
           </div>

@@ -42,6 +42,8 @@ import road from "./assets/work_logo/road.png";
 import food from "./assets/work_logo/food.png";
 import car from "./assets/work_logo/car.png";
 import portfolio from "./assets/work_logo/portfolio.png";
+import interview from "./assets/work_logo/interview.png"
+import chat from "./assets/work_logo/chat.png"
 
 export const SkillsInfo = [
   {
@@ -56,7 +58,7 @@ export const SkillsInfo = [
     ],
   },
   {
-    title: "Backend",
+    title: "Backend & Database",
     skills: [
       { name: "Node JS", logo: nodejsLogo },
       { name: "Express JS", logo: expressjsLogo },
@@ -89,6 +91,15 @@ export const SkillsInfo = [
 export const projects = [
   {
     id: 0,
+    title: "Interview Evaluator",
+    description:
+      "Reducing bias and improving candidate evaluation accuracy through an AI-powered interview assessment and skill analysis platform.",
+    image: interview,
+    tags: ["React JS", "Tailwindcss", "Node.js", "Firebase", "MongoDB"],
+    github: "https://github.com/kirubakaran232/Interview_Analyzer",
+  },
+  {
+    id: 1,
     title: "Smart Farming Solution",
     description:
       "A smart, multilingual agri-advisory solution that provides personalized crop, soil, and weather insights to small farmers. It leverages AI for real-time guidance, pest detection, and market updates. The platform reduces costs, improves yields, and promotes sustainable farming. With voice and local language support, it empowers low-literate farmers and enhances livelihoods.",
@@ -97,7 +108,16 @@ export const projects = [
     github: "https://github.com/kirubakaran232/Farming_advisory",
   },
   {
-    id: 1,
+    id: 2,
+    title: "Chatting Application",
+    description:
+      "GhostTalk is a modern AI-powered real-time chatting platform that enables secure username-based communication with features like locked chats, voice/video calls, media sharing, and smart AI assistance. The platform focuses on privacy, seamless connectivity, and an advanced user experience beyond traditional messaging applications.",
+    image: chat,
+    tags: ["React JS", "Tailwindcss", "Node.js", "Firebase", "MongoDB"],
+    github: "https://github.com/kirubakaran232/Chatting_Application",
+  },
+  {
+    id: 3,
     title: "Road Hazard Reporting System",
     description:
       "A web-based platform for citizens to report road hazards and track their resolution in real time. Includes an admin panel for verifying reports, updating statuses, and managing feedback. Users can view completed reports with ratings and progress updates. Enhances road safety, transparency, and community participation.",
@@ -106,7 +126,7 @@ export const projects = [
     github: "https://github.com/kirubakaran232/Road-hazard-reporting-system",
   },
   {
-    id: 2,
+    id: 4,
     title: "Food Ordering System",
     description:
       "A dynamic food ordering system with an interactive menu for users to browse and place orders. Includes an admin page to add new food items, update prices, and manage availability. Integrated with secure payment options for seamless transactions. Provides a smooth experience for both customers and administrators.",
@@ -114,22 +134,14 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/kirubakaran232/food-ordering-system",
   },
+
   {
-    id: 3,
+    id: 5,
     title: "Car Crash Detector and Alert System",
     description:
       "A real-time vehicle crash detection system using MEMS and speed sensors for accident identification. Integrated with GPS for live location tracking and GSM for instant emergency alerts. A connected website allows admins to verify and correct false alerts. Enhances road safety by enabling faster response and reducing misinformation.",
     image: car,
     tags: ["HTML", "CSS", "JavaScript", "Python"],
     github: "https://github.com/kirubakaran232/car-crash-alert-system",
-  },
-  {
-    id: 4,
-    title: "Portfolio Showcase Website",
-    description:
-      "A portfolio showcase website where users can post and share their portfolio URLs. Provides sections to display skills, projects, about, and contact details. Enables networking by allowing others to explore portfolios directly. Helps professionals highlight their expertise and reach wider audiences.",
-    image: portfolio,
-    tags: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/kirubakaran232/job-portfolio",
   },
 ];
