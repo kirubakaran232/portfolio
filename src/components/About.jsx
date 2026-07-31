@@ -37,7 +37,7 @@ const About = () => {
             transform: 'scaleY(1.05)'
           }}
         >
-          Web Developer
+        Developer
         </h1>
 
       </div>
