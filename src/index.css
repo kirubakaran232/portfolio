@@ -10,16 +10,18 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 95%;
 }
 
 body {
   margin: 0;
-  background: #050414;
+  background: #ffffff;
+  color: #111111;
 }
 
 ::selection {
   color: white;
-  background: #8245ec;
+  background: #dc2626;
 }
 
 @layer utilities {

@@ -1,93 +1,106 @@
-import ReactTypingEffect from 'react-typing-effect';
-import { FiArrowUpRight, FiDownload } from "react-icons/fi";
-import profileImage from '../assets/profile.png';
+import { FiArrowUpRight, FiDownload, FiMapPin } from "react-icons/fi";
+import { SiReact, SiJavascript, SiMongodb, SiTailwindcss } from "react-icons/si";
+import profileImage from '../assets/me.png';
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="px-5 pb-10 pt-24 md:px-8 md:pb-16 md:pt-28"
-    >
-      <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(340px,430px)] xl:gap-12">
-        <div className="order-2 mx-auto max-w-3xl text-center lg:order-1 lg:mx-0 lg:text-left">
-          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#8245ec]/25 bg-[#8245ec]/10 px-4 py-2 shadow-[0_0_28px_rgba(130,69,236,0.18)]">
-            <span className="h-2 w-2 rounded-full bg-[#a855f7]"></span>
-            <span className="font-mono-ui text-xs uppercase tracking-[0.24em] text-gray-300">
-              Building useful web systems
-            </span>
-          </div>
+    <section id="about" className="relative w-full overflow-hidden pt-24 pb-8 lg:pt-10 lg:pb-0 xl:pt-16 xl:pb-2 flex flex-col items-center justify-center min-h-screen bg-white text-black z-0">
+      
+      {/* Decorative Red Dotted Grid (Bottom Left) */}
+      <div 
+        className="absolute bottom-4 left-4 lg:bottom-4 lg:left-4 xl:bottom-6 xl:left-6 w-40 h-40 lg:w-20 lg:h-20 xl:w-28 xl:h-28 opacity-50 pointer-events-none hidden md:block"
+        style={{
+          backgroundImage: 'radial-gradient(#dc2626 2.5px, transparent 2.5px)',
+          backgroundSize: '20px 20px'
+        }}
+      ></div>
 
-          <h1 className="text-5xl font-black leading-[0.98] text-white sm:text-6xl xl:text-7xl">
-            Kirubakaran S
-          </h1>
 
-          <h2 className="mx-auto mt-4 max-w-3xl text-2xl font-semibold leading-tight text-[#a855f7] sm:text-3xl lg:mx-0 xl:text-4xl">
-            <span className="text-white">I design and ship as a </span>
-            <ReactTypingEffect
-              text={["Fullstack Developer", "Problem Solver", "MERN Builder"]}
-              speed={100}
-              eraseSpeed={50}
-              typingDelay={500}
-              eraseDelay={2000}
-              cursorRenderer={(cursor) => (
-                <span className="text-[#8245ec]">{cursor}</span>
-              )}
-            />
-          </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-400 lg:mx-0">
-            I am a full-stack developer, building scalable web applications.
-            Skilled in both front-end and back-end development, I specialize in
-            the MERN stack and other modern technologies to create seamless user
-            experiences and efficient solutions.
-          </p>
+      {/* Massive Typography Container (STRICTLY BEHIND IMAGE) */}
+      <div className="relative flex flex-col items-center w-full max-w-[1500px] mx-auto z-10 pointer-events-none translate-y-8 lg:translate-y-10 xl:translate-y-12">
+        
+        {/* Solid Text */}
+        <h1 
+          className="text-[16vw] sm:text-[14vw] md:text-[13vw] lg:text-[5.5rem] xl:text-[6.5rem] 2xl:text-[8rem] font-black leading-[0.8] tracking-tighter text-[#111111] text-center uppercase relative z-10 select-none"
+          style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif', transform: 'scaleY(1.05)' }}
+        >
+          Fullstack
+        </h1>
+        
+        {/* Outline Text */}
+        <h1 
+          className="text-[16vw] sm:text-[14vw] md:text-[13vw] lg:text-[5.5rem] xl:text-[6.5rem] 2xl:text-[8rem] font-black leading-[0.8] tracking-tighter text-transparent text-center uppercase relative z-10 select-none mt-6 sm:mt-8 md:mt-10 lg:mt-6 xl:mt-8 2xl:mt-12"
+          style={{ 
+            fontFamily: '"Helvetica Neue", Arial, sans-serif', 
+            WebkitTextStroke: '2px #dc2626',
+            transform: 'scaleY(1.05)'
+          }}
+        >
+          Web Developer
+        </h1>
 
-          <div className="mt-7 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-            <a
-              href="https://drive.google.com/file/d/1Bazyjpww7Omh9OxF8-wfkxSwkSSQuH-V/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8245ec] to-[#a855f7] px-7 py-4 font-bold text-white shadow-[0_0_34px_rgba(130,69,236,0.45)] transition hover:-translate-y-1 hover:shadow-[0_0_45px_rgba(130,69,236,0.65)]"
-            >
-              <FiDownload />
-              Resume
-            </a>
-            <a
-              href="#work"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#8245ec]/35 bg-[#120d24]/70 px-7 py-4 font-bold text-white transition hover:-translate-y-1 hover:border-[#a855f7] hover:bg-[#8245ec]/15"
-            >
-              View Projects
-              <FiArrowUpRight />
-            </a>
-          </div>
-        </div>
+      </div>
 
-        <div className="order-1 relative mx-auto w-full max-w-[300px] sm:max-w-[360px] lg:order-2 lg:max-w-none">
-          <div className="absolute -left-4 top-8 hidden h-[calc(100%-1rem)] w-full rounded-[2rem] border border-[#8245ec]/40 md:block"></div>
-          <div className="relative rounded-[2rem] border border-[#8245ec]/25 bg-[#120d24]/80 p-4 shadow-[0_0_60px_rgba(130,69,236,0.25)] backdrop-blur">
-            <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-[#8245ec]/20 pb-4">
-              <span className="font-mono-ui text-xs text-[#a855f7]">PROFILE</span>
-              <span className="h-px bg-[#8245ec]/20"></span>
-              <span className="font-mono-ui text-xs text-emerald-300">ONLINE</span>
-            </div>
-            <img
-              src={profileImage}
-              alt="Kirubakaran S"
-              className="mt-4 aspect-[4/5] w-full rounded-[1.5rem] object-cover drop-shadow-[0_15px_35px_rgba(130,69,236,0.35)]"
-            />
-            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-              {["React", "Node", "MongoDB"].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#8245ec]/20 bg-[#8245ec]/10 px-2 py-3 font-mono-ui text-[11px] uppercase text-gray-300"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+      {/* Profile Image & Background Circle (STRICTLY IN FRONT OF TEXT) */}
+      <div 
+        className="relative w-[340px] sm:w-[450px] md:w-[500px] lg:w-[280px] xl:w-[320px] 2xl:w-[420px] -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-16 xl:-mt-20 2xl:-mt-28 z-30 flex items-center justify-center pointer-events-none mx-auto"
+        style={{ maskImage: 'linear-gradient(to bottom, black 75%, transparent 95%)', WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 95%)' }}
+      >
+          
+          {/* Big Solid Red Circle */}
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-[-5%] w-[95%] aspect-square bg-gradient-to-br from-[#dc2626] to-[#ef4444] rounded-full -z-10 shadow-[0_20px_50px_rgba(220,38,38,0.2)]"></div>
+          
+          {/* Profile Picture */}
+          <img 
+            src={profileImage} 
+            alt="Kirubakaran S" 
+            className="w-full h-auto object-contain drop-shadow-2xl z-20 pointer-events-auto"
+          />
+      </div>
+
+      {/* Floating Side Elements (Desktop) */}
+      
+      {/* Left: Based in India */}
+      <div className="hidden lg:block absolute left-[2%] xl:left-[3%] bottom-[2%] lg:bottom-[3%] xl:bottom-[5%] z-40">
+        <div className="flex flex-col gap-6 lg:gap-5 xl:gap-8">
+          <div className="border-l-[3px] border-[#dc2626] pl-4 lg:pl-3 xl:pl-5">
+            <p className="text-gray-800 text-[16px] lg:text-[14px] xl:text-[16px] font-medium tracking-tight leading-snug">
+              building modern web <br /> experiences.
+            </p>
           </div>
         </div>
       </div>
+      
+      {/* Right: Technologies */}
+      <div className="hidden lg:block absolute right-[2%] xl:right-[3%] bottom-[2%] lg:bottom-[3%] xl:bottom-[5%] z-40">
+        <p className="text-gray-700 text-[13px] lg:text-[12px] xl:text-[13px] font-bold mb-3 text-center tracking-tight">Technologies I work with</p>
+        <div className="flex items-center gap-4 lg:gap-3 xl:gap-4 justify-center">
+            <SiReact className="text-[#dc2626] hover:scale-110 transition-transform cursor-pointer drop-shadow-sm w-8 h-8 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+            <SiJavascript className="text-[#dc2626] hover:scale-110 transition-transform cursor-pointer drop-shadow-sm w-8 h-8 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+            <SiMongodb className="text-[#dc2626] hover:scale-110 transition-transform cursor-pointer drop-shadow-sm w-8 h-8 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+            <SiTailwindcss className="text-[#dc2626] hover:scale-110 transition-transform cursor-pointer drop-shadow-sm w-8 h-8 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+        </div>
+      </div>
+
+
+
+      {/* Mobile Side Elements */}
+      <div className="flex flex-col w-full max-w-sm gap-6 items-center mt-6 lg:hidden z-40 px-4 pb-4">
+          <div className="border-l-[4px] border-[#dc2626] pl-4 self-start">
+            <p className="text-gray-800 text-[17px] font-medium leading-snug tracking-tight">
+              building modern web <br /> experiences.
+            </p>
+          </div>
+          <div className="flex w-full justify-end items-center">
+            <div className="flex items-center gap-4 text-[#dc2626]">
+              <SiReact size={22} />
+              <SiJavascript size={22} />
+              <SiMongodb size={22} />
+            </div>
+          </div>
+      </div>
+      
     </section>
   );
 };

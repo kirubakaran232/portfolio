@@ -7,9 +7,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="px-5 py-5 text-white md:px-8">
-      <div className="mx-auto max-w-7xl border-t border-[#8245ec]/20 py-6 text-center">
-        <h2 className="text-xl font-bold text-[#a855f7]">Kirubakaran S</h2>
+    <footer className="px-5 py-5 text-gray-900 md:px-8 bg-white">
+      <div className="mx-auto max-w-7xl border-t border-gray-200 py-6 text-center">
+        <h2 className="text-xl font-bold text-[#dc2626]">Kirubakaran S</h2>
 
         <nav className="mt-4 flex flex-wrap justify-center gap-4 sm:gap-6">
           {[
@@ -21,14 +21,14 @@ const Footer = () => {
             <button
               key={item.id}
               onClick={() => handleScroll(item.id)}
-              className="my-1 text-sm text-gray-400 hover:text-[#a855f7] sm:text-base"
+              className="my-1 text-sm font-medium text-gray-500 hover:text-[#dc2626] sm:text-base"
             >
               {item.name}
             </button>
           ))}
         </nav>
 
-        <p className="mt-4 font-mono-ui text-xs text-gray-500">
+        <p className="mt-4 font-mono-ui text-xs text-gray-400">
           (c) 2026 Kirubakaran. All rights reserved.
         </p>
       </div>
