@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FiMenu, FiX, FiArrowUpRight } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -106,10 +107,19 @@ const Navbar = () => {
             >
               <FaLinkedin size={22} />
             </a>
+            <a
+              href="https://leetcode.com/u/kiruba1406/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LeetCode"
+              className="text-gray-700 transition hover:text-[#FFA116] hover:scale-110"
+            >
+              <SiLeetcode size={22} />
+            </a>
           </div>
           
           <a
-            href="https://drive.google.com/file/d/1Bazyjpww7Omh9OxF8-wfkxSwkSSQuH-V/view?usp=sharing"
+            href="https://drive.google.com/file/d/1LADR30mm496WNC6RJ2zui83oEz4HwCks/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-xl bg-[#dc2626] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#b91c1c] shadow-lg shadow-red-500/20"
@@ -165,13 +175,23 @@ const Navbar = () => {
                 href="https://www.linkedin.com/in/kirubakaran1406/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="text-gray-700 hover:text-[#0077b5]"
               >
                 <FaLinkedin size={24} />
               </a>
+              <a
+                href="https://leetcode.com/u/kiruba1406/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LeetCode"
+                className="text-gray-700 hover:text-[#FFA116]"
+              >
+                <SiLeetcode size={24} />
+              </a>
             </div>
             <a
-               href="https://drive.google.com/file/d/1Bazyjpww7Omh9OxF8-wfkxSwkSSQuH-V/view?usp=sharing"
+               href="https://drive.google.com/file/d/1LADR30mm496WNC6RJ2zui83oEz4HwCks/view?usp=sharing"
                target="_blank"
                rel="noopener noreferrer"
                className="mt-2 w-full text-center rounded-xl bg-[#dc2626] px-4 py-3 font-bold text-white"
